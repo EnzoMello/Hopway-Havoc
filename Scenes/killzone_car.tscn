@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtxosgnb3junl"]
+
+[ext_resource type="Script" path="res://Scripts/killzone.gd" id="1_i0nor"]
+[ext_resource type="PackedScene" uid="uid://blfdldpv7xlxj" path="res://Scenes/TransitionNode.tscn" id="2_s7t62"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_66ope"]
+radius = 6.01152
+height = 41.997
+
+[node name="killzone" type="Area2D"]
+script = ExtResource("1_i0nor")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.58275
+shape = SubResource("CapsuleShape2D_66ope")
+
+[node name="Transition" parent="." instance=ExtResource("2_s7t62")]
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

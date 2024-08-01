@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7c1c7am2vcyp"]
+
+[ext_resource type="Script" path="res://Scripts/poste2.gd" id="1_y14ar"]
+[ext_resource type="Texture2D" uid="uid://c182vfgpo3dql" path="res://Assets/poste.png" id="2_2gmkp"]
+[ext_resource type="Texture2D" uid="uid://d2d65lijbw8tu" path="res://Assets/light2D-gradient.png" id="3_6eppy"]
+
+[node name="poste" type="Node2D" groups=["Poste"]]
+script = ExtResource("1_y14ar")
+
+[node name="Poste" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1, -40)
+scale = Vector2(1.65385, 2.29268)
+texture = ExtResource("2_2gmkp")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(6.5, -65)
+scale = Vector2(0.183919, 0.0813802)
+color = Color(0.810962, 1, 0.996054, 1)
+energy = 2.08
+texture = ExtResource("3_6eppy")
+texture_scale = 2.2

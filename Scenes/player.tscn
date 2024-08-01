@@ -1,0 +1,220 @@
+[gd_scene load_steps=27 format=3 uid="uid://bprj8p0mhlx84"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_5lcem"]
+[ext_resource type="Texture2D" uid="uid://b6u8t5i7qinic" path="res://Assets/Idle.png" id="2_mwoqr"]
+[ext_resource type="Texture2D" uid="uid://dyxqv0ruyinxe" path="res://Assets/running-down.png" id="3_t33q6"]
+[ext_resource type="Texture2D" uid="uid://sbegn64iouf2" path="res://Assets/running-up.png" id="4_y1nio"]
+[ext_resource type="Texture2D" uid="uid://b6mjsrdrlew0u" path="res://Assets/running.png" id="5_6wc0f"]
+[ext_resource type="FontFile" uid="uid://cpcp1a015j5wa" path="res://Assets/04B_30__.TTF" id="6_8rtyo"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="7_tbglj"]
+[ext_resource type="PackedScene" uid="uid://b0n5iacovtksj" path="res://Scenes/time_ambients.tscn" id="7_xhxhx"]
+[ext_resource type="PackedScene" uid="uid://dqs0didcis200" path="res://Scenes/count.tscn" id="8_ur0me"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg2k1"]
+atlas = ExtResource("2_mwoqr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ora66"]
+atlas = ExtResource("2_mwoqr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26k6w"]
+atlas = ExtResource("2_mwoqr")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxd5u"]
+atlas = ExtResource("3_t33q6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5xaw"]
+atlas = ExtResource("3_t33q6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aivbe"]
+atlas = ExtResource("3_t33q6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdkit"]
+atlas = ExtResource("3_t33q6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v102"]
+atlas = ExtResource("4_y1nio")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn2gk"]
+atlas = ExtResource("4_y1nio")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_114kb"]
+atlas = ExtResource("4_y1nio")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ouia"]
+atlas = ExtResource("4_y1nio")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhcnk"]
+atlas = ExtResource("5_6wc0f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h2s2"]
+atlas = ExtResource("5_6wc0f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45bdp"]
+atlas = ExtResource("5_6wc0f")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_085bf"]
+atlas = ExtResource("5_6wc0f")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbu5k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg2k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ora66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26k6w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxd5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5xaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aivbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdkit")
+}],
+"loop": true,
+"name": &"running_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v102")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn2gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_114kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ouia")
+}],
+"loop": true,
+"name": &"running_up",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhcnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h2s2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45bdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_085bf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0v03"]
+size = Vector2(14.5, 30.5)
+
+[node name="player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 3
+script = ExtResource("1_5lcem")
+
+[node name="Player_sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -17.5)
+scale = Vector2(1.4375, 1.53125)
+sprite_frames = SubResource("SpriteFrames_xbu5k")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+position = Vector2(-4, -18.25)
+shape = SubResource("RectangleShape2D_j0v03")
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -561.0
+offset_top = -277.0
+offset_right = -521.0
+offset_bottom = -237.0
+
+[node name="title" type="Label" parent="Title"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -281.0
+offset_top = -418.0
+offset_right = 1294.0
+offset_bottom = -277.0
+theme_override_colors/font_color = Color(0.183522, 0.820954, 1, 1)
+theme_override_fonts/font = ExtResource("6_8rtyo")
+theme_override_font_sizes/font_size = 140
+text = "HOPWAY HAVOC"
+visible_characters_behavior = 3
+
+[node name="Start" type="Button" parent="Title"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 40.0
+offset_right = 766.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.490196, 0.772549, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.803922, 0.996078, 1)
+theme_override_fonts/font = ExtResource("6_8rtyo")
+theme_override_font_sizes/font_size = 40
+text = "START"
+
+[node name="Exit" type="Button" parent="Title"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 150.0
+offset_right = 766.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.490196, 0.772549, 1)
+theme_override_colors/font_hover_color = Color(0.309116, 0.804105, 0.997405, 1)
+theme_override_fonts/font = ExtResource("6_8rtyo")
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("7_tbglj")
+
+[node name="Time" parent="Camera2D" instance=ExtResource("7_xhxhx")]
+position = Vector2(-572, -304)
+
+[node name="Count" parent="Camera2D" instance=ExtResource("8_ur0me")]
+position = Vector2(-132, -323)
+
+[connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Title/Exit" to="." method="_on_exit_pressed"]

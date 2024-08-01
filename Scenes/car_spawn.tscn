@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb4jfb6h2yukf"]
+
+[ext_resource type="Script" path="res://Scripts/CarSpawn.gd" id="1_q30ud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4loe"]
+size = Vector2(894, 96)
+
+[node name="CarSpawn" type="Node2D"]
+script = ExtResource("1_q30ud")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(512, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(65, 48)
+shape = SubResource("RectangleShape2D_d4loe")
+
+[node name="spawn_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="spawn_timer" to="." method="_on_spawn_timer_timeout"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0n5iacovtksj"]
+
+[ext_resource type="Script" path="res://Scripts/Time.gd" id="1_wl0ox"]
+[ext_resource type="FontFile" uid="uid://cpcp1a015j5wa" path="res://Assets/04B_30__.TTF" id="2_qu6x0"]
+
+[node name="Time" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_wl0ox")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -347.0
+offset_top = -513.0
+offset_right = -90.0
+offset_bottom = -495.0
+theme_override_colors/font_color = Color(0, 0.572549, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qu6x0")
+theme_override_font_sizes/font_size = 17
+text = "New AMBIENT IN: 00"
+
+[node name="day_timer" type="Timer" parent="."]
+
+[node name="scene_timer" type="Timer" parent="."]
+
+[node name="fade_timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="day_timer" to="." method="_on_day_timer_timeout"]
+[connection signal="timeout" from="scene_timer" to="." method="_on_scene_timer_timeout"]
+[connection signal="timeout" from="fade_timer" to="." method="_on_fade_timer_timeout"]

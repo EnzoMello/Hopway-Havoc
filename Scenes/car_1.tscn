@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://282q3nhxanmf"]
+
+[ext_resource type="Script" path="res://Scripts/car_1.gd" id="1_u0kti"]
+[ext_resource type="Texture2D" uid="uid://r4njmesef6r3" path="res://Assets/BlueStrip.png" id="2_vp82g"]
+[ext_resource type="PackedScene" uid="uid://dtxosgnb3junl" path="res://Scenes/killzone_car.tscn" id="3_w0phx"]
+[ext_resource type="Texture2D" uid="uid://d2d65lijbw8tu" path="res://Assets/light2D-gradient.png" id="4_belw2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nitdq"]
+
+[node name="car_1" type="CharacterBody2D" groups=["Car"]]
+script = ExtResource("1_u0kti")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_vp82g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+texture_filter = 1
+position = Vector2(1, 0)
+rotation = 1.5784
+scale = Vector2(1.32658, 1.70058)
+shape = SubResource("CapsuleShape2D_nitdq")
+
+[node name="killzone" parent="." instance=ExtResource("3_w0phx")]
+position = Vector2(1.19209e-07, 4.76837e-07)
+rotation = -0.0192795
+scale = Vector2(1.28062, 2.03069)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(33.1875, 1)
+scale = Vector2(0.0844726, 0.148438)
+color = Color(0.329897, 0.702265, 0.992183, 1)
+energy = 1.56
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("4_belw2")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqhesxd65xwce"]
+
+[ext_resource type="Shader" path="res://Assets/rain_and_snow_shader.gdshader" id="1_uudga"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rx2j8"]
+shader = ExtResource("1_uudga")
+shader_parameter/rain_amount = 300.0
+shader_parameter/near_rain_length = 0.11
+shader_parameter/far_rain_length = 0.01
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.1
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0, 0.341167, 0.630742, 1)
+shader_parameter/base_rain_speed = 0.756
+shader_parameter/additional_rain_speed = 1.0
+shader_parameter/slant = 0.343
+
+[node name="rain" type="Node2D" groups=["Ambient"]]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+self_modulate = Color(0, 0, 0, 0.427451)
+material = SubResource("ShaderMaterial_rx2j8")
+offset_top = -27.0
+offset_right = 1146.0
+offset_bottom = 603.0

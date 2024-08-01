@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3xg35rqd4rgv"]
+
+[ext_resource type="Texture2D" uid="uid://bko28pumt06lw" path="res://Assets/WaterFall(Water).png" id="1_6g178"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqm1j"]
+atlas = ExtResource("1_6g178")
+region = Rect2(42, 32, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gk54"]
+atlas = ExtResource("1_6g178")
+region = Rect2(168, 32, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjy6f"]
+atlas = ExtResource("1_6g178")
+region = Rect2(294, 32, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g04li"]
+atlas = ExtResource("1_6g178")
+region = Rect2(42, 64, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbua2"]
+atlas = ExtResource("1_6g178")
+region = Rect2(168, 64, 42, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqerj"]
+atlas = ExtResource("1_6g178")
+region = Rect2(294, 64, 42, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n2njn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqm1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gk54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjy6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g04li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbua2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqerj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Water" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(0, 0.745098, 1, 1)
+position = Vector2(231.584, -0.427477)
+rotation = -1.57264
+scale = Vector2(1, 15.474)
+sprite_frames = SubResource("SpriteFrames_n2njn")
+autoplay = "default"
+frame_progress = 0.886225

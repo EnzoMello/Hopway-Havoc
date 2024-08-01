@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqs0didcis200"]
+
+[ext_resource type="Script" path="res://Scripts/Count.gd" id="1_guad3"]
+[ext_resource type="FontFile" uid="uid://cpcp1a015j5wa" path="res://Assets/04B_30__.TTF" id="2_4coag"]
+
+[node name="Count" type="Node2D" groups=["Contador"]]
+script = ExtResource("1_guad3")
+
+[node name="Score" type="Label" parent="."]
+texture_filter = 1
+offset_left = 81.0
+offset_top = 24.0
+offset_right = 113.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(0, 0.572549, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4coag")
+theme_override_font_sizes/font_size = 17
+text = "00"

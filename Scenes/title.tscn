@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd28sh45tr5hi"]
+
+[ext_resource type="Script" path="res://Scripts/title.gd" id="1_ysj2a"]
+[ext_resource type="FontFile" uid="uid://cpcp1a015j5wa" path="res://Assets/04B_30__.TTF" id="2_x2qfo"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ysj2a")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 109.0
+offset_right = 719.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(8.27849e-06, 0.747656, 0.916372, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_x2qfo")
+theme_override_font_sizes/font_size = 24
+text = "HOPWAY HAVOC"
+
+[node name="start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 368.0
+offset_right = 633.0
+offset_bottom = 399.0
+theme_override_fonts/font = ExtResource("2_x2qfo")
+text = "START"
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 415.0
+offset_right = 632.0
+offset_bottom = 447.0
+theme_override_fonts/font = ExtResource("2_x2qfo")
+text = "EXIT
+"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 325)
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
