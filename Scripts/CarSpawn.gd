@@ -45,10 +45,9 @@ func spawn_car():
 		car_instance.position = spawn_position
 		car_instance.direction = Vector2.LEFT # Direção do movimento definida
 		car_instance.get_node("sprite").flip_h = true
-		var point_light = car_instance.get_node("PointLight2D")
-		point_light.offset = Vector2(-700,0) #Luz vai acompanhar a inversão do sprite
 		
 	add_child(car_instance)
 
 
-
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

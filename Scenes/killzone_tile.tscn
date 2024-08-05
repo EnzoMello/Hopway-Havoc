@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://blfdldpv7xlxj" path="res://Scenes/TransitionNode.tscn" id="2_ot62i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1mpoi"]
-size = Vector2(26.9588, 195.166)
+size = Vector2(1738.02, 17.0759)
 
 [node name="killzone" type="Area2D"]
 script = ExtResource("1_tlbbx")
@@ -12,7 +12,7 @@ script = ExtResource("1_tlbbx")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(87.5352, 4.52605)
+position = Vector2(90.3646, -187.951)
 rotation = 1.5779
 shape = SubResource("RectangleShape2D_1mpoi")
 
