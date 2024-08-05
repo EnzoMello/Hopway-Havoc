@@ -170,13 +170,18 @@ offset_bottom = -237.0
 [node name="title" type="Label" parent="Title"]
 texture_filter = 1
 layout_mode = 0
-offset_left = -281.0
-offset_top = -418.0
-offset_right = 1294.0
-offset_bottom = -277.0
-theme_override_colors/font_color = Color(0.183522, 0.820954, 1, 1)
+offset_left = -11.0
+offset_top = -194.0
+offset_right = 1111.0
+offset_bottom = -93.0
+theme_override_colors/font_color = Color(0, 0.764706, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 12
 theme_override_fonts/font = ExtResource("6_8rtyo")
-theme_override_font_sizes/font_size = 140
+theme_override_font_sizes/font_size = 95
 text = "HOPWAY HAVOC"
 visible_characters_behavior = 3
 
@@ -206,8 +211,22 @@ theme_override_fonts/font = ExtResource("6_8rtyo")
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
 
+[node name="Clique" type="Label" parent="Title"]
+layout_mode = 0
+offset_left = 619.0
+offset_top = 221.0
+offset_right = 1059.0
+offset_bottom = 268.0
+theme_override_colors/font_color = Color(0, 0.572549, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_8rtyo")
+theme_override_font_sizes/font_size = 20
+text = "Controle seu movimento pelo 
+botao esquerdo do mouse"
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.7, 0.7)
 script = ExtResource("7_tbglj")
 
 [node name="Time" parent="Camera2D" instance=ExtResource("7_xhxhx")]

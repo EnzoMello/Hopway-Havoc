@@ -19,28 +19,31 @@ func _ready():
 # Configurando o timer do dia 
 	day_timer.wait_time = ambient_interval
 	day_timer.one_shot = false
-	day_timer.timeout.connect(_on_day_timer_timeout)
+	if not day_timer.is_connected("timeout", Callable(self, "_on_day_timer_timeout")):
+		day_timer.connect("timeout", Callable(self, "_on_day_timer_timeout"))
 	day_timer.start()
-	add_child(day_timer)
+	
 	
 # Configurações do timer da cena
 	scene_timer.wait_time = ambient_duration
 	scene_timer.one_shot = false
-	scene_timer.timeout.connect(_on_scene_timer_timeout)
+	if not scene_timer.is_connected("timeout", Callable(self, "_on_scene_timer_timeout")):
+		scene_timer.connect("timeout", Callable(self, "_on_scene_timer_timeout"))
 	scene_timer.start()
-	add_child(scene_timer)
+
 	
 # Configurações do fade da cena instanciada
 	fade_timer.wait_time = 0.1 # Atualiza a opacidade a cada 1 segundo
 	fade_timer.one_shot = false
-	fade_timer.timeout.connect(_on_fade_timer_timeout)
+	if not fade_timer.is_connected("timeout", Callable(self, "_on_fade_timer_timeout")):
+		fade_timer.connect("timeout", Callable(self, "_on_fade_timer_timeout"))
 	fade_timer.start()
-	add_child(fade_timer)
+
 	
 # Configuração Label do tempo
 	time_label.text = "00:00"
 	time_label.position = Vector2(10, 10)
-	add_child(time_label)
+
 
 	set_process(true)
 

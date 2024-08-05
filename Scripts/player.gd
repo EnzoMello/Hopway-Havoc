@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 100
+@export var speed = 60
 @export var hp = 100
 @onready var distance_walk = 32
 @onready var player_sprite = $Player_sprite
@@ -9,18 +9,25 @@ var target = Vector2()
 @onready var player = $"."
 @onready var Start = $Title/Start as Button
 @onready var Exit = $Title/Exit as Button
+@onready var Clique = $Title/Clique
 @onready var cam = $Camera2D
 @onready var ambients = $Camera2D/Time
 @onready var count = $Camera2D/Count
+@onready var title = $Title
 
 func _ready():
+	
+	if Global.count_menu == 1 or Global.count_menu == 2 or Global.count_menu == 3:
+		title.queue_free()
 	speed = 0
 	var tween = get_tree().create_tween()
 	var ambients_tween_visibility = get_tree().create_tween()
 	var count_tween = get_tree().create_tween()
-	await tween.tween_property(cam,"zoom",Vector2(0.7,0.7),4)
+	var clique_tween_zero = get_tree().create_tween()
+	await tween.tween_property(cam,"zoom",Vector2(1,1),4)
 	await ambients_tween_visibility.tween_property(ambients,"modulate",Color(1,1,1,0),0.1)
 	await count_tween.tween_property(count,"modulate",Color(1,1,1,0),0.1)
+	await clique_tween_zero.tween_property(Clique,"modulate",Color(1,1,1,0),0.1)
 	Start.button_down.connect(_on_start_pressed)
 	Exit.button_down.connect(_on_exit_pressed)
 	target = position
@@ -59,21 +66,30 @@ func _physics_process(delta):
 	else:
 		player_sprite.play("idle")
 	
-	#if hp == 0:
-		#cam.shakeCamera()
+	if hp == 0:
+		cam.shakeCamera()
+		Global.game_over()
+
 
 func _on_start_pressed():
-	speed = 100
+	speed = 0
+	$Title/Start.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+	$Title/Exit.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	var zoom_tween = get_tree().create_tween()
 	var start_tween = get_tree().create_tween()
 	var exit_tween = get_tree().create_tween()
+	var clique_tween = get_tree().create_tween()
 	var ambients_tween = get_tree().create_tween()
 	var countt_tween = get_tree().create_tween()
+	var speed_tween = get_tree().create_tween()
 	zoom_tween.tween_property(cam,"zoom",Vector2(1.7,1.7),3)
 	await ambients_tween.tween_property(ambients,"scale",Vector2(1,1),2)
 	await ambients_tween.tween_property(ambients,"modulate",Color(1,1,1,1),2)
 	await countt_tween.tween_property(count,"modulate",Color(1,1,1,1),4)
 	await start_tween.tween_property($Title/Start,"modulate",Color(1,1,1,0),2)
+	await clique_tween.tween_property(Clique,"modulate",Color(1,1,1,1),1).set_delay(1)
+	await clique_tween.tween_property(Clique,"modulate",Color(1,1,1,0),1).set_delay(2)
+	await speed_tween.tween_property(player,"speed",100,3).set_delay(3)
 	await exit_tween.tween_property($Title/Exit,"modulate",Color(1,1,1,0),2).finished
 	$Title/title.visible = false
 	Start.visible = false
@@ -82,3 +98,4 @@ func _on_start_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+

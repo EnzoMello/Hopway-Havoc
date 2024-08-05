@@ -1,11 +1,11 @@
 extends Node2D
 
 @export var car_scenes: Array = [
-	preload("res://Scenes/car_1.tscn"),
-	preload("res://Scenes/car_debug.tscn")
+	preload("res://Scenes/car_1.tscn")
+	
 ]
 
-@export var spawn_interval: float = 4.0
+@export var spawn_interval: float = 3.8
 @export var spawn_area_left: Rect2 = Rect2(Vector2(-20,-10), Vector2(94,10)) # Área da esquerda
 
 @onready var spawn_timer = $spawn_timer
@@ -40,4 +40,5 @@ func spawn_car():
 	add_child(car_instance)
 
 
-
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()

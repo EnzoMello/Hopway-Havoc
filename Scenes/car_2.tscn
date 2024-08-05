@@ -1,18 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7vwx7cpyso0r"]
+[gd_scene load_steps=4 format=3 uid="uid://b7vwx7cpyso0r"]
 
 [ext_resource type="Script" path="res://Scripts/car_2.gd" id="1_asigm"]
 [ext_resource type="Texture2D" uid="uid://cu25wdw5nj67u" path="res://Assets/GreenStrip.png" id="2_6gbbf"]
-[ext_resource type="PackedScene" uid="uid://dtxosgnb3junl" path="res://Scenes/killzone_car.tscn" id="3_xeo4j"]
-[ext_resource type="Texture2D" uid="uid://d2d65lijbw8tu" path="res://Assets/light2D-gradient.png" id="4_sssyf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lnfci"]
 radius = 14.2738
 height = 28.5477
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6bvwn"]
-polygon = PackedVector2Array(30, 6, 19, 15, -22, 15, -28, 10, -12, 55, 15, 55)
-
-[node name="car_2" type="CharacterBody2D" groups=["Car"]]
+[node name="car_2" type="CharacterBody2D" groups=["Car2"]]
 script = ExtResource("1_asigm")
 
 [node name="sprite" type="Sprite2D" parent="."]
@@ -26,20 +21,16 @@ rotation = 1.57428
 scale = Vector2(0.847072, 1.96162)
 shape = SubResource("CapsuleShape2D_lnfci")
 
-[node name="killzone" parent="." instance=ExtResource("3_xeo4j")]
-rotation = -0.0182083
-scale = Vector2(1.3215, 2.09262)
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_6bvwn")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+texture_filter = 1
+position = Vector2(-1, 1.90735e-06)
+rotation = 1.57428
+scale = Vector2(0.847072, 1.96162)
+shape = SubResource("CapsuleShape2D_lnfci")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(33.1875, 1)
-scale = Vector2(0.0844726, 0.148438)
-color = Color(0.937215, 0.970155, 0.999635, 1)
-energy = 1.56
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-texture = ExtResource("4_sssyf")
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
