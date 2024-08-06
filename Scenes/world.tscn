@@ -4623,7 +4623,7 @@ layer_1/tile_data = PackedInt32Array(-917502, 1966084, 6, -917501, 1966084, 6, -
 position = Vector2(0, -1760)
 
 [node name="player" parent="." instance=ExtResource("6_oufim")]
-position = Vector2(636, 291)
+position = Vector2(458, -1763)
 
 [node name="CarSpawn8" parent="." instance=ExtResource("7_0upct")]
 position = Vector2(10, -1648)

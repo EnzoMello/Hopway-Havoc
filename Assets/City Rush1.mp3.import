@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brpdkmfkv0iq7"
+path="res://.godot/imported/City Rush1.mp3-bb8992ab41f3447e88fbc65b056712d9.mp3str"
+
+[deps]
+
+source_file="res://Assets/City Rush1.mp3"
+dest_files=["res://.godot/imported/City Rush1.mp3-bb8992ab41f3447e88fbc65b056712d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

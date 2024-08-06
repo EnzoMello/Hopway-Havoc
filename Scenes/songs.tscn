@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6owbjr405sno"]
+
+[ext_resource type="Script" path="res://Scripts/songs.gd" id="1_bc86h"]
+
+[node name="Songs" type="Node2D"]
+script = ExtResource("1_bc86h")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX 2"
+
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

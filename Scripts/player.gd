@@ -31,6 +31,7 @@ func _ready():
 	Start.button_down.connect(_on_start_pressed)
 	Exit.button_down.connect(_on_exit_pressed)
 	target = position
+	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
@@ -44,6 +45,10 @@ func _input(event):
 
 
 func _physics_process(delta):
+	if cam.zoom == Vector2(1,1) and get_parent().name == "World":
+		$Title/Start.set_mouse_filter(Control.MOUSE_FILTER_STOP)
+		$Title/Exit.set_mouse_filter(Control.MOUSE_FILTER_STOP)
+	
 	var direction = position.direction_to(target)
 	velocity = direction * speed
 	# look_at(target)
@@ -72,6 +77,7 @@ func _physics_process(delta):
 
 
 func _on_start_pressed():
+	Songs.playSFX(preload("res://Assets/Coin (Sound FX).mp3"))
 	speed = 0
 	$Title/Start.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	$Title/Exit.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
