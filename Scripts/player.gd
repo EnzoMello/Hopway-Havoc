@@ -22,7 +22,9 @@ func _ready():
 	
 	if Global.count_menu == 1 or Global.count_menu == 2 or Global.count_menu == 3:
 		title.queue_free()
-	speed = 0
+	if Start.visible == false:
+		speed = 100
+		cam.zoom = Vector2(1.7,1.7)
 	var tween = get_tree().create_tween()
 	var ambients_tween_visibility = get_tree().create_tween()
 	var count_tween = get_tree().create_tween()
@@ -112,10 +114,6 @@ func _on_start_pressed():
 func _on_exit_pressed():
 	get_tree().quit()
 
-func _on_pause_pressed():
-	transition.instantiate()
-	pause_scene.instantiate()
-	var transition_tween = get_tree().create_tween()
-	await transition_tween.tween_property(transition,"visible",false,2)
+
 	
 	
