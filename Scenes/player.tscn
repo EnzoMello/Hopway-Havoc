@@ -186,12 +186,12 @@ text = "HOPWAY HAVOC"
 visible_characters_behavior = 3
 
 [node name="Start" type="Button" parent="Title"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 359.0
 offset_top = 40.0
 offset_right = 766.0
 offset_bottom = 120.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.490196, 0.772549, 1)
 theme_override_colors/font_hover_color = Color(0.309804, 0.803922, 0.996078, 1)
@@ -200,12 +200,12 @@ theme_override_font_sizes/font_size = 40
 text = "START"
 
 [node name="Exit" type="Button" parent="Title"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 359.0
 offset_top = 150.0
 offset_right = 766.0
 offset_bottom = 223.0
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.490196, 0.772549, 1)
 theme_override_colors/font_hover_color = Color(0.309116, 0.804105, 0.997405, 1)
@@ -227,16 +227,6 @@ theme_override_font_sizes/font_size = 20
 text = "Controle seu movimento pelo 
 botao esquerdo do mouse"
 
-[node name="Pause" type="Button" parent="Title"]
-layout_mode = 0
-offset_left = 369.0
-offset_top = 240.0
-offset_right = 416.0
-offset_bottom = 264.0
-theme_override_font_sizes/font_size = 10
-text = "PAUSE
-"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
 zoom = Vector2(0.7, 0.7)
@@ -250,4 +240,3 @@ position = Vector2(-132, -323)
 
 [connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Title/Exit" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="Title/Pause" to="." method="_on_pause_pressed"]
