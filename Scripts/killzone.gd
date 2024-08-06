@@ -4,8 +4,8 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body is Player:
-		player.hp = 0
-		print("You died")
+		var player_hp_tween = get_tree().create_tween()
+		await player_hp_tween.tween_property(player,"hp",0,1.4).finished
 		timer.start()
 	
 #func _on_timer_timeout():

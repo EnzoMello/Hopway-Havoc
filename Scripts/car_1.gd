@@ -22,5 +22,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
-		player.hp = 0
+		var player_hp_tween = get_tree().create_tween()
+		await player_hp_tween.tween_property(player,"hp",0,1.4).finished
+		
 

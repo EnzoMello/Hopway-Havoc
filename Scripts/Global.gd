@@ -7,6 +7,7 @@ var salas_p_criadas = 38
 var current_sala = null
 var previous_sala = null
 var count_menu = 0
+var count_score = 0
 
 var main_scenes := {
 	"game" : preload("res://Scenes/world.tscn"),
