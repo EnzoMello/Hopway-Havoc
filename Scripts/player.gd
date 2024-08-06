@@ -9,6 +9,9 @@ var target = Vector2()
 @onready var player = $"."
 @onready var Start = $Title/Start as Button
 @onready var Exit = $Title/Exit as Button
+@onready var Pause = $Title/Pause as Button
+@onready var pause_scene = preload("res://Scenes/menu_pause.tscn") as PackedScene
+@onready var transition = preload("res://Scenes/TransitionNode.tscn") as PackedScene
 @onready var Clique = $Title/Clique
 @onready var cam = $Camera2D
 @onready var ambients = $Camera2D/Time
@@ -24,7 +27,7 @@ func _ready():
 	var ambients_tween_visibility = get_tree().create_tween()
 	var count_tween = get_tree().create_tween()
 	var clique_tween_zero = get_tree().create_tween()
-	await tween.tween_property(cam,"zoom",Vector2(1,1),4)
+	await tween.tween_property(cam,"zoom",Vector2(1.4,1.4),4)
 	await ambients_tween_visibility.tween_property(ambients,"modulate",Color(1,1,1,0),0.1)
 	await count_tween.tween_property(count,"modulate",Color(1,1,1,0),0.1)
 	await clique_tween_zero.tween_property(Clique,"modulate",Color(1,1,1,0),0.1)
@@ -66,10 +69,11 @@ func _physics_process(delta):
 	else:
 		player_sprite.play("idle")
 	
-	if hp == 0:
+	if hp < 100:
 		cam.shakeCamera()
+		Global.count_score = 0
+	if hp == 0:
 		Global.game_over()
-
 
 func _on_start_pressed():
 	speed = 0
@@ -83,6 +87,7 @@ func _on_start_pressed():
 	var countt_tween = get_tree().create_tween()
 	var speed_tween = get_tree().create_tween()
 	zoom_tween.tween_property(cam,"zoom",Vector2(1.7,1.7),3)
+	cam.zoom = Vector2(1.7,1.7)
 	await ambients_tween.tween_property(ambients,"scale",Vector2(1,1),2)
 	await ambients_tween.tween_property(ambients,"modulate",Color(1,1,1,1),2)
 	await countt_tween.tween_property(count,"modulate",Color(1,1,1,1),4)
@@ -94,8 +99,17 @@ func _on_start_pressed():
 	$Title/title.visible = false
 	Start.visible = false
 	Exit.visible = false
-
+	Start.queue_free()
+	Exit.queue_free()
+	title.queue_free()
 
 func _on_exit_pressed():
 	get_tree().quit()
 
+func _on_pause_pressed():
+	transition.instantiate()
+	pause_scene.instantiate()
+	var transition_tween = get_tree().create_tween()
+	await transition_tween.tween_property(transition,"visible",false,2)
+	
+	

@@ -4,7 +4,7 @@ extends Node2D
 @onready var score_label = $Score
 @onready var player = get_tree().get_first_node_in_group("Player")
 
-var score = 0
+var score = Global.count_score
 var player_position = Vector2()
 
 func _ready():
@@ -14,7 +14,9 @@ func _ready():
 func _process(delta):
 	var distance_moved = player.position.distance_to(player_position)
 	if distance_moved >= score_increment:
-		score += 1
+		Global.count_score += 1
+		score = Global.count_score
 		print("enzola")
 		score_label.text = "Score: " + str(score)
 		player_position = player.position
+		
