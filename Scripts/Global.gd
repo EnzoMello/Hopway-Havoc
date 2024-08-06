@@ -14,7 +14,8 @@ var main_scenes := {
 	"1" : preload("res://Scenes/sala_1.tscn"),
 	"2" : preload("res://Scenes/sala_2.tscn"),
 	"3" : preload("res://Scenes/sala_3.tscn"),
-	"4" : preload("res://Scenes/sala_4.tscn")
+	"4" : preload("res://Scenes/sala_4.tscn"),
+	"win" : preload("res://Scenes/game_win.tscn")
 	}
 
 # Função que transiciona as cenas
