@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bprj8p0mhlx84"]
+[gd_scene load_steps=28 format=3 uid="uid://bprj8p0mhlx84"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_5lcem"]
 [ext_resource type="Texture2D" uid="uid://b6u8t5i7qinic" path="res://Assets/Idle.png" id="2_mwoqr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://sbegn64iouf2" path="res://Assets/running-up.png" id="4_y1nio"]
 [ext_resource type="Texture2D" uid="uid://b6mjsrdrlew0u" path="res://Assets/running.png" id="5_6wc0f"]
 [ext_resource type="FontFile" uid="uid://cpcp1a015j5wa" path="res://Assets/04B_30__.TTF" id="6_8rtyo"]
+[ext_resource type="FontFile" uid="uid://chni5jkvu6ss6" path="res://Assets/CuteBunnyEars-Regular.ttf" id="7_gmi6u"]
 [ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="7_tbglj"]
 [ext_resource type="PackedScene" uid="uid://b0n5iacovtksj" path="res://Scenes/time_ambients.tscn" id="7_xhxhx"]
 [ext_resource type="PackedScene" uid="uid://dqs0didcis200" path="res://Scenes/count.tscn" id="8_ur0me"]
@@ -170,10 +171,10 @@ offset_bottom = -237.0
 [node name="title" type="Label" parent="Title"]
 texture_filter = 1
 layout_mode = 0
-offset_left = -11.0
-offset_top = -194.0
-offset_right = 1111.0
-offset_bottom = -93.0
+offset_left = 314.0
+offset_top = 52.0
+offset_right = 767.0
+offset_bottom = 93.0
 theme_override_colors/font_color = Color(0, 0.764706, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 7
@@ -181,36 +182,36 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 12
 theme_override_fonts/font = ExtResource("6_8rtyo")
-theme_override_font_sizes/font_size = 95
+theme_override_font_sizes/font_size = 40
 text = "HOPWAY HAVOC"
 visible_characters_behavior = 3
 
 [node name="Start" type="Button" parent="Title"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 359.0
-offset_top = 40.0
-offset_right = 766.0
-offset_bottom = 120.0
+offset_left = 314.0
+offset_top = 132.0
+offset_right = 418.0
+offset_bottom = 172.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.490196, 0.772549, 1)
 theme_override_colors/font_hover_color = Color(0.309804, 0.803922, 0.996078, 1)
 theme_override_fonts/font = ExtResource("6_8rtyo")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 12
 text = "START"
 
 [node name="Exit" type="Button" parent="Title"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 359.0
-offset_top = 150.0
-offset_right = 766.0
-offset_bottom = 223.0
+offset_left = 314.0
+offset_top = 183.0
+offset_right = 417.0
+offset_bottom = 216.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0.490196, 0.772549, 1)
 theme_override_colors/font_hover_color = Color(0.309116, 0.804105, 0.997405, 1)
 theme_override_fonts/font = ExtResource("6_8rtyo")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 12
 text = "EXIT"
 
 [node name="Clique" type="Label" parent="Title"]
@@ -222,7 +223,7 @@ offset_bottom = 268.0
 theme_override_colors/font_color = Color(0, 0.572549, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("6_8rtyo")
+theme_override_fonts/font = ExtResource("7_gmi6u")
 theme_override_font_sizes/font_size = 20
 text = "Controle seu movimento pelo 
 botao esquerdo do mouse"
@@ -233,10 +234,10 @@ zoom = Vector2(0.7, 0.7)
 script = ExtResource("7_tbglj")
 
 [node name="Time" parent="Camera2D" instance=ExtResource("7_xhxhx")]
-position = Vector2(-572, -304)
+position = Vector2(-385, -215)
 
 [node name="Count" parent="Camera2D" instance=ExtResource("8_ur0me")]
-position = Vector2(-132, -323)
+position = Vector2(-115, -232)
 
 [connection signal="pressed" from="Title/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Title/Exit" to="." method="_on_exit_pressed"]

@@ -5,7 +5,7 @@ extends Node2D
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
-		Global.transition_to_scene("1")
+		Global.transition_to_scene("2")
 		Global.count_menu = 1
 		
 			

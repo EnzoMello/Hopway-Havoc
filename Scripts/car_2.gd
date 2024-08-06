@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group("Player")
-@export var speed = 220
+@export var speed = 260
 @export var damage = 100
 @export var direction: Vector2 = Vector2.RIGHT
 

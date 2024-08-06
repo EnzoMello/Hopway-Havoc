@@ -23,6 +23,10 @@ config/icon="res://Assets/BlueStrip.png"
 Global="*res://Scripts/Global.gd"
 Songs="*res://Scenes/songs.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

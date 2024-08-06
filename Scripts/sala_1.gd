@@ -11,5 +11,5 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
-		Global.transition_to_scene("2")
+		Global.transition_to_scene("win")
 		Global.count_menu == 2

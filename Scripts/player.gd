@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 60
+@export var speed = 100
 @export var hp = 100
 @onready var distance_walk = 32
 @onready var player_sprite = $Player_sprite
@@ -94,14 +94,14 @@ func _on_start_pressed():
 	var ambients_tween = get_tree().create_tween()
 	var countt_tween = get_tree().create_tween()
 	var speed_tween = get_tree().create_tween()
-	zoom_tween.tween_property(cam,"zoom",Vector2(1.7,1.7),3)
-	cam.zoom = Vector2(1.7,1.7)
+	zoom_tween.tween_property(cam,"zoom",Vector2(1.5,1.5),3)
+	cam.zoom = Vector2(1.5,1.5)
 	await ambients_tween.tween_property(ambients,"scale",Vector2(1,1),2)
 	await ambients_tween.tween_property(ambients,"modulate",Color(1,1,1,1),2)
 	await countt_tween.tween_property(count,"modulate",Color(1,1,1,1),4)
 	await start_tween.tween_property($Title/Start,"modulate",Color(1,1,1,0),2)
 	await clique_tween.tween_property(Clique,"modulate",Color(1,1,1,1),1).set_delay(1)
-	await clique_tween.tween_property(Clique,"modulate",Color(1,1,1,0),1).set_delay(2)
+	await clique_tween.tween_property(Clique,"modulate",Color(1,1,1,0),4).set_delay(4)
 	await speed_tween.tween_property(player,"speed",100,3).set_delay(3)
 	await exit_tween.tween_property($Title/Exit,"modulate",Color(1,1,1,0),2).finished
 	$Title/title.visible = false
