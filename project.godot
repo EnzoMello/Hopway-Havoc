@@ -10,14 +10,18 @@ config_version=5
 
 [application]
 
-config/name="Novo Projeto De Jogo"
+config/name="Hopway-Havoc"
 run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Assets/Labiras_Logo.png"
+boot_splash/fullsize=false
+config/icon="res://Assets/BlueStrip.png"
 
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+Songs="*res://Scenes/songs.tscn"
 
 [rendering]
 
